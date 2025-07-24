@@ -3,6 +3,14 @@
     --rad: 10px;
     --box_sha: 0 0 10px rgba(255,255,255,0.3);
 }
+
+@container Layout (max-width: 769px){
+    .card-container{
+        grid-template-columns: 1fr !important;
+        padding: var(--pad);
+    }
+}
+
 .container{
     container-name: Layout;
     container-type: inline-size;
