@@ -1,0 +1,26 @@
+:root{
+    --pad: clamp(2rem,3cqi,2.5rem);
+    --rad: 10px;
+    --box_sha: 0 0 10px rgba(255,255,255,0.3);
+}
+.container{
+    container-name: Layout;
+    container-type: inline-size;
+}
+.card-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-around;
+    align-content: center;
+    padding: var(--pad);
+}
+.text-card{
+    text-align: justify;
+    box-shadow: var(--box_sha);
+}
+.visual img{
+    width: 30cqi;
+    height: 30cqi;
+    border-radius: var(--rad);
+    box-shadow: var(--box_sha);
+}
