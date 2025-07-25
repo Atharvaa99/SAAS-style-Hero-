@@ -29,6 +29,22 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h2{
+    font-size: clamp(2rem, 4cqi,3.5rem);
+    padding: clamp(0.3rem,1cqi,0.5rem);
+    color: var(--text);
+    font-weight: 800;
+}
+h3{
+    font-size: clamp(1.2rem, 3cqi,2rem);
+    color: var(--text);
+    font-weight: 700;
+}
+p{
+    font-size: clamp(1rem, 2.5cqi,1.5rem) ;
+    color: var(--text-muted);
+}
+
 .container {
     container-name: Layout;
     container-type: inline-size;
@@ -38,9 +54,10 @@ body{
 
 .card-container {
     height: 95%;
+    width: 80%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-around;
+    grid-template-columns: 1fr 2fr;
+    justify-content: space-between;
     gap: var(--gap);
     align-items: center;
     padding: var(--pad);
@@ -56,21 +73,7 @@ body{
     box-shadow: var(--box-shadow);
     border-radius: var(--rad);
 }
-.text-card h2{
-    font-size: clamp(2rem, 4cqi,3.5rem);
-    padding: clamp(0.3rem,1cqi,0.5rem);
-    color: var(--text);
-    font-weight: 800;
-}
-.text-card h3{
-    font-size: clamp(1.2rem, 3cqi,2rem);
-    color: var(--text);
-    font-weight: 700;
-}
-.text-card p{
-    font-size: clamp(1rem, 2.5cqi,1.5rem) ;
-    color: var(--text-muted);
-}
+
 .cta{
     display: flex;
     justify-content: space-evenly;
@@ -89,16 +92,23 @@ body{
     transform: translateY(5%) scale(1.05);
 }
 /* Right Visual Section */
-.visual-text {
-    text-align: left;
+
+.visual-card{
+    text-align:center;
     display: flex;
+    flex-direction: column ;
     gap: var(--gap);
-    box-shadow: var(--box_sha);
+    padding: var(--pad);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--rad);
 }
 
 .visual img {
-    width: clamp(280px,40vw,500px);
-    height: clamp(300px,50vw,500px);
-    border-radius: var(--rad);
-    box-shadow: var(--box_sha);
+  width: clamp(220px, 40cqi, 450px);
+  height: auto;
+  max-height: 70vh;
+  border-radius: var(--rad);
+  box-shadow: var(--box-shadow);
+  object-fit: cover;
+  max-height: 400px ;
 }
