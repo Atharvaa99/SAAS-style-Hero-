@@ -19,6 +19,34 @@
         padding: var(--pad);
     }
 }
+@container Layout (max-width: 400px) {
+    .card-container {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        padding:0.4rem !important;
+    }
+    .text-card{
+        max-width: 320px;
+    }
+    .visual-card{
+        max-width: 320px;
+    }
+}
+@container Layout (min-width:701px) and (max-width:1000px){
+    .card-container{
+        height: 100%;
+        grid-template-columns: 1fr 1fr ;
+        padding: 1rem !important;
+        gap: 1.2rem !important;
+        align-items: center;
+    }
+    .text-card{
+        max-width: 400px;
+    }
+    .visual-card{
+        max-width: 400px;
+    }
+}
 body{
     margin:0;
     height: 100vh;
