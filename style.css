@@ -7,16 +7,23 @@
     --cta-bg: #00f6ff;
     --cta-hover: #0ff;
     --rad: 12px;
-    --pad: clamp(2rem, 5vw, 3rem);
+    --pad: clamp(2rem, 5vw, 2.5rem);
     --box-shadow: 0 0 15px rgba(0, 255, 255, 0.25);
     --gap: clamp(2rem, 3cqi, 2.3rem);
 }
 
-@container Layout (max-width: 700px) {
+@container Layout (max-width: 768px) {
     .card-container {
         grid-template-columns: 1fr !important;
         gap: var(--gap);
         padding: var(--pad);
+    }
+     .text-card {
+        max-width: 500px !important;
+    }
+
+    .visual-card {
+        max-width: 500px;
     }
 }
 
@@ -25,6 +32,7 @@
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
         padding: 0.4rem !important;
+        min-height: 100vh;
     }
 
     .text-card {
@@ -36,9 +44,9 @@
     }
 }
 
-@container Layout (min-width:701px) and (max-width:1000px) {
+@container Layout (min-width: 769px) and (max-width: 1000px) {
     .card-container {
-        height: 100%;
+        min-height: 100vh;
         grid-template-columns: 1fr 1fr;
         padding: 1rem !important;
         gap: 1.2rem !important;
@@ -54,9 +62,10 @@
     }
 }
 
-body {
+html, body {
+    height: 100%;
     margin: 0;
-    height: 100vh;
+    overflow-x: hidden; /* 🔧 FIX */
     background: var(--bg);
     line-height: 1.3;
     letter-spacing: 2px;
@@ -85,7 +94,9 @@ p {
 .container {
     container-name: Layout;
     container-type: inline-size;
-    height: 80%;
+    min-height: 100vh;
+    display: flex;              /* 🔧 FIX */
+    align-items: center;        /* 🔧 FIX */
 }
 
 .card-container {
@@ -112,6 +123,8 @@ p {
     transition: all 0.5s ease;
     cursor: auto;
     animation: fadeIn 1s ease;
+    will-change: transform, opacity; /* 🔧 FIX */
+    min-height: 1px;                 /* 🔧 FIX */
 }
 
 .cta {
@@ -144,17 +157,18 @@ p {
     border-radius: var(--rad);
     animation: fadeInR 1s ease;
     transition: all 0.5s ease;
+    will-change: transform, opacity; 
+    min-height: 1px;                 
 }
 
 .visual img {
     width: clamp(220px, 40cqi, 450px);
     height: auto;
-    max-height: 70vh;
+    max-height: clamp(200px, 50vh, 400px); 
     border-radius: var(--rad);
     box-shadow: 0 0 5px rgba(0, 255, 255, 0.1);
     object-fit: cover;
-    max-height: 400px;
-    animation: scaleInB 0.5s ease forwards;
+    animation: scaleInB 0.5s ease-out forwards;
     animation-delay: 0.1s;
 }
 
@@ -177,15 +191,16 @@ p {
 
 /* Animations for loading fade */
 @keyframes scaleInB {
-  from {
-    transform: scale(0);
-    opacity: 0.3;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+    from {
+        transform: scale(0);
+        opacity: 0.3;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
+
 @keyframes button {
     0% {
         box-shadow: 0 0 5px rgb(120, 245, 249);
@@ -200,27 +215,27 @@ p {
     }
 }
 
-
+/* Animations */
 @keyframes fadeIn {
     from {
-        opacity: 0;
         transform: translateX(-100%) scale(1.5);
+        opacity: 0;
     }
 
     to {
-        opacity: 1;
         transform: translateX(0%) scale(1);
+        opacity: 1;
     }
 }
 
 @keyframes fadeInR {
     from {
-        opacity: 0;
         transform: translateX(100%) scale(1.5);
+        opacity: 0;
     }
 
     to {
-        opacity: 1;
         transform: translateX(0%) scale(1);
+        opacity: 1;
     }
 }
